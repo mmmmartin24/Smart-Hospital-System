@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .explanation-box {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .side-by-side-container {
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .box {
+            background-color: #8f8f8f;
+            border: 5px solid #333;
+            padding: 20px;
+            width: 100%; /* Adjust as needed */
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .info-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+        .info-button:hover {
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .box img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: justify;
+            padding: 10px;
+        }
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+        .content {
+            padding: 20px;
+        }
+
+        .container1 {
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container1 {
+            margin-right: 15px;
+        }
+
+        img1 {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .text1 {
+            font-size: 18px;
+            color: #333;
+            margin-top: 0px;
+            text-align: center;
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+    </style>
+    <title>Info</title>
+</head>
+<body>
+    <header>
+      <h1>System Explanation</h1>
+      <h2 style="color: black;">
+        In the healthcare industry, managing and analyzing patient data is crucial. A Django project can be designed to collect, store, and analyze data from various sources within a healthcare facility. This project can be focused on improving patient care, optimizing hospital operations, and ensuring compliance with health regulations.
+      </h2>
+    </header>
+    <div class="side-by-side-container">
+        <div class="box">
+            <h3>Patient Monitoring System</h3>
+            <p><strong>Location:</strong> Patient's room</p>
+            <br>
+            <div style="text-align: center;"><strong>SENSORS</strong></div>
+            <div class="image-box">
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">  
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn-icons-png.flaticon.com/128/11347/11347212.png" alt="Image 1">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>IV Level Sensor:</strong>
+                            Measures the infusion fluid level in the patient's infuse bag. Threshold is 0 - 1000mL.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn-icons-gif.flaticon.com/11880/11880532.gif" alt="Image 2">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Heartbeat Sensor:</strong>
+                            Measures the patient's heartbeat rate. Threshold is 0 - 120 bpm.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://montanamolecular.com/wp-content/uploads/2016/12/cAMP-assay-gif_for-web-1.gif" alt="Image 3">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Flourescent Based Glucose Sensor:</strong>
+                            Measures the concentration of glucose in the patient's blood stream using fluorophore. Threshold is 100 - 190 mg/dL.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div style="text-align: center;"><strong>ACTUATORS</strong></div>
+            <div class="image-box">
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn-icons-gif.flaticon.com/8721/8721062.gif" alt="Image 1">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Alert Actuator:</strong>
+                            The alert actuator will activate if the IV level sensor value is below 10 mL or the heartbeat sensor value is below 70 bpm or the flourescent based glucose sensor value is above 160 mg/dL, or any combination of these conditions.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn-icons-gif.flaticon.com/13099/13099796.gif" alt="Image 2">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>IV Flow Actuator:</strong>
+                            The IV flow actuator will activate to increase the IV fluid flow rate if the heartbeat sensor value is below 90 bpm and the level sensor value is above 150 mL.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn-icons-png.flaticon.com/128/4337/4337828.png" alt="Image 3">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Insulin Pump Actuator:</strong>
+                            The insulin pump actuator will activate to increase insulin delivery if the glucose level is above 150 mg/dL.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="image-container1">
+                <a href="https://imgbb.com/"><img src="https://i.ibb.co/S3cQ0hH/3.png" alt="3" border="0"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Visitor Health Check System</h3>
+            <p><strong>Location: </strong>All around the hospital</p>
+            <br>
+            <div style="text-align: center;"><strong>SENSORS</strong></div>
+            <div class="image-box">
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://www.voltrium.com.sg/en/wp-content/uploads/2022/09/real_time_face_mask_detection1.gif" alt="Image 4">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Camera Detection Sensor:</strong>
+                            Uses facial and object recognition system to detect whether a visitor is wearing a medical face mask or not around the hospital. Threshold is 0 (mask detected) or 1 (no mask detected).
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn-icons-png.flaticon.com/128/2797/2797718.png" alt="Image 5">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Microbial Sensor:</strong>
+                            Using UV-C light to detect presence of germs or microorganisms on a visitor before they enter the hospital. Threshold is 50 - 250 J/m^3.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                    <img height="128px" width="128px" src="https://s.wsj.net/public/resources/images/OG-AF600_201509_ER_20150901131648.gif" alt="Image 6">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Thermal Sensor:</strong>
+                            Measures the visitor's body temperature before entering the hospital. Threshold is 35 - 40 °C. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div style="text-align: center;"><strong>ACTUATORS</strong></div>
+            <div class="image-box">
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn.dribbble.com/users/33136/screenshots/5412580/2018-10-17_16.37.37.gif" alt="Image 4">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Laser Pointer Actuator:</strong>
+                            Laser pointer actuator is activated when the camera detection sensor returns value 1 or there is a visitor that doesn't uses a medical face mask.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn-icons-gif.flaticon.com/10398/10398520.gif" alt="Image 5">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Door Lock Actuator:</strong>
+                            The door lock actuator will activate if the visitor is not wearing a medical face mask, the microbial sensor detects bacteria of 150 J/m^3 on the person, or the thermal sensor detects a body temperature above 38°C, or any combination of these conditions.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn-icons-gif.flaticon.com/10823/10823460.gif" alt="Image 6">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Disinfectant Spray Actuator:</strong>
+                            The disinfectant spray actuator will activate if the microbial sensor detects bacteria of 150 J/m^3 on the visitor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="image-container1">
+                <a href="https://imgbb.com/"><img src="https://i.ibb.co/PZ92Sj2/2.png" alt="2" border="0"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Surgery Room Conditioning System</h3>
+            <p><strong>Location:</strong> Surgery room</p>
+            <br>
+            <div style="text-align: center;"><strong>SENSORS</strong></div>
+            <div class="image-box">
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://cdn.goengineer.com/positive-pressure-simulation.gif" alt="Image 7">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Room Pressure Sensor:</strong>
+                            Measures the surgery room's air pressure. Maintaining good air pressure in a surgery room is crucial for infection control, 
+                            airborne pathogen control and ventilation. Threshold is 0 - 15 Pa.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.tenor.com%2Fimages%2Ff8519dd5570f9e05d17c413b50e7eccc%2Ftenor.gif&f=1&nofb=1&ipt=d2d6e11b7d7625ca0b30724d0114c124e40aff2a4d116f328a29ad4da3c66af5&ipo=images" alt="Image 7">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Temperature Sensor:</strong>
+                            Measures the surgery room's temperature. Maintaining good room temperature in a surgery room is crucial for patient comfort, 
+                            staff comfort and equipment performance. Threshold is 20 - 30 °C.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://user-images.githubusercontent.com/12629515/103579278-0dc08780-4ee9-11eb-9c24-5e1c6acb58b8.gif" alt="Image 7">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Humidity Sensor:</strong>
+                            Measures the surgery room's humidity. Maintaining good room humidity in a surgery room is crucial for static electricity control, 
+                            equipment performance, patient and staff comfort, and wound tissue healing. Threshold is 0 - 80 %.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div style="text-align: center;"><strong>ACTUATORS</strong></div>
+            <div class="image-box">
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/MRF-Effekt.gif" alt="Image 7">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Electric Damper Actuator:</strong>
+                            The electric damper actuator will activate to increase room pressure if the room pressure sensor reads below 2.5 Pa.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://www.qagraphics.com/wp-content/uploads/2019/01/Komfovent-RHP-PRO-1.gif" alt="Image 7">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>HVAC System Actuator:</strong>
+                            The HVAC system actuator will activate to turn on the cooling system if the temperature sensor reads 
+                            above 25 °C or if the humidity sensor reads above 65%, or both.
+                        </p>
+                    </div>
+                </div>
+                <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                ">
+                    <div>
+                        <img height="128px" width="128px" src="https://i.gifer.com/7VUL.gif" alt="Image 7">
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Alarm Actuator:</strong>
+                            The alarm actautor will activate if the temperature sensor reads above 27 °C, or if the humidity sensor reads above 70%, 
+                            or if the room pressure sensor reads below 2.0 Pa, or any combination of these conditions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="image-container1">
+                <a href="https://imgbb.com/"><img src="https://i.ibb.co/wSnvCR8/1.png" alt="1" border="0"></a>
+            </div>
+        </div>
+    </div>
+    <div style="
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    ">
+        <div style="
+            padding: 20px;
+        ">
+            <h2>Machine Learning Technique: Logistic Regression with CSV Files</h2>
+            <div style="
+                background-color: #fff;
+                border: 2px solid #333;
+                border-radius: 5px;
+                padding: 20px;
+                margin-top: 20px;
+            ">
+                <p>
+                    <strong>Machine Learning Technique: Logistic Regression</strong><br>
+                    Logistic Regression is a statistical model used for binary classification problems. It models the probability that an instance belongs to a particular class using a logistic function.
+                </p>
+                <p>
+                    <strong>Training Using CSV Files</strong><br>
+                    CSV (Comma-Separated Values) files are used to store tabular data, with each row representing a data instance. Training involves using a labeled dataset to teach the model, and the CSV files store the features and labels for training instances.
+                </p>
+                <p>
+                    <strong>Integration of Logistic Regression and CSV Files</strong><br>
+                    Logistic regression is applied to the data stored in CSV files during the training process. The model adjusts its parameters to minimize the difference between predictions and actual labels, learning patterns from the training data.
+                </p>
+                <p>
+                    <strong>Outcome</strong><br>
+                    After training, the logistic regression model can predict the probability of an instance belonging to a class. It can be applied to new data, calculating probabilities and assigning classes based on a chosen threshold.
+                </p>
+            </div>
+        </div>
+    </div>
+    <a href="http://localhost:8000" class="info-button">BACK</a>
+</body>
+</html>

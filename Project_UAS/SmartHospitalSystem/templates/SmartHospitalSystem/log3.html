@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Entries</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 120px; /* Adjust the width as needed */
+        }
+
+        th {
+        background-color: #3498db;
+        color: #fff;
+        font-size: 14px; /* Adjusted font size */
+        }
+
+        .table-container {
+            display: flex;
+        }
+
+        .table-container > div {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        td.timestamp {
+            font-size: 11px;
+        } 
+
+        .info-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            padding: 10px;
+            color: #fff;
+            border: 2px solid #c0392b;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        .info-button:hover {
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .step-links a {
+            margin: 0 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .step-links a:hover {
+            text-decoration: underline;
+        }
+
+        .current {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://localhost:8000" class="info-button">BACK</a>
+    <h2>Surgery Room Conditioning System Log</h2>
+    
+    <div class="table-container">
+
+        <div>
+            {% if log_entries %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Room_pressure_sensor</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in log_entries %}
+                            {% if entry.name == "room_pressure_sensor" %}
+                                <tr>
+                                    <td class="timestamp">{{ entry.timestamp }}</td>
+                                    <td>{{ entry.Data|floatformat:2 }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            
+
+            {% else %}
+                <p>No log entries available.</p>
+            {% endif %}
+        </div>
+
+        <div>
+            {% if log_entries %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Temperature_sensor</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in log_entries %}
+                            {% if entry.name == "temperature_sensor" %}
+                                <tr>
+                                    <td>{{ entry.Data|floatformat:2 }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No log entries available.</p>
+            {% endif %}
+        </div>
+
+
+        <div>
+            {% if log_entries %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Humidity_sensor</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in log_entries %}
+                            {% if entry.name == "humidity_sensor" %}
+                                <tr>
+                                    <td>{{ entry.Data }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No log entries available.</p>
+            {% endif %}
+        </div>
+        <div>
+            {% if log_entries %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Electric_damper</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in log_entries %}
+                            {% if entry.name == "Electric_damper" %}
+                                <tr>
+                                    <td>{{ entry.Data }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No log entries available.</p>
+            {% endif %}
+        </div>
+        <div>
+            {% if log_entries %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>HVAC_system</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in log_entries %}
+                            {% if entry.name == "HVAC_system" %}
+                                <tr>
+                                    <td>{{ entry.Data }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No log entries available.</p>
+            {% endif %}
+        </div>
+        <div>
+            {% if log_entries %}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Alarm</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in log_entries %}
+                            {% if entry.name == "Alarm" %}
+                                <tr>
+                                    <td>{{ entry.Data }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No log entries available.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if log_entries.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ log_entries.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ log_entries.number }} of {{ log_entries.paginator.num_pages }}.
+            </span>
+    
+            {% if log_entries.has_next %}
+                <a href="?page={{ log_entries.next_page_number }}">next</a>
+                <a href="?page={{ log_entries.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <script>
+        function autoRefresh() {
+            setTimeout(function () {
+                location.reload();
+            }, 500);
+        }
+        autoRefresh();
+    </script>
+
+</body>
+</html>

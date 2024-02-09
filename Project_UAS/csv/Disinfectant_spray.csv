@@ -1,0 +1,11 @@
+camera_sensor,Microbial_sensor,thermal_sensor,Disinfectant_spray
+1,200,37,1
+0,120,36,0
+1,180,38,1
+0,50,35,0
+1,250,39,1
+0,80,35,0
+1,150,38,1
+0,200,36,0
+1,100,37,0
+0,170,40,1

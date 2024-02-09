@@ -1,0 +1,10 @@
+room_pressure_sensor,temperature_sensor,humidity_sensor,HVAC_system
+10,24,70,1
+10,25,71,1
+10,26,71,1
+10,27,60,0
+15,20,40,0
+8,21,50,0
+5,30,90,1
+10,26,70,0
+

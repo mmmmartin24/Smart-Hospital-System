@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>UAS Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+    <style>
+    .main_title{
+        text-align: center;
+        background-color: lightsalmon;
+    }
+
+    .text_center{
+        text-align: center;
+    }
+
+    .table{
+        display: flex;
+        margin-bottom: 60px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main_div{
+        margin-top: 8px;
+        display: grid;
+        grid-template-columns: 520px 1fr;
+    }
+
+    .row1{
+        background-color: lightcyan; width: 100%; height: 100%; text-align: center;
+    }
+    .row2{
+        background-color: lightsteelblue; width: 100%; height: 100%; text-align: center;
+    }
+    .row3{
+        background-color: lightgray; width: 100%; height: 100%; text-align: center;
+    }
+
+    .td_size{
+        width: 200px; height: 200px;
+    }
+
+    .square{
+        width: 200px;
+        height: 200px;
+        margin-right: 20px
+    }
+
+    .grayscale{
+            filter: grayscale(100%);
+            height: 100px; width: 100px;
+        }
+
+    .hover-text {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: black;
+      color: white;
+    }
+    .hover-box:hover .hover-text {
+      display: block;
+    }
+    
+    /* graph.html */
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .subsystem_box {
+            background-color: #8f8f8f;
+            border: 5px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            width: 33.33%; /* Set to 33.33% for three boxes */
+            text-align: center;
+            box-sizing: border-box; /* Include border and padding in the box's total width */
+        }
+        .Graph {
+            background-color: #c0c0c0;
+            height: 200px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .actuator-title-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .actuator-title-container span {
+            text-align: center;
+            font-size: 11px;
+            width: 100%; /* Ensures each span takes the full width of the container */
+            }
+        .actuator-container {
+            display: flex;
+            margin: 0;
+            justify-content: space-around;
+            align-items: center;
+            height: 20vh;
+        }
+        .actuator1-1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            background-color: #ffcc00;
+        }
+        .actuator1-2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            background-color: green;
+        }
+        .actuator1-3 {
+            width: 100px;
+            height: 100px;
+            top: 10px;
+            left: 10px;
+            background-color: orange;
+        }
+        .actuator2-1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            background-color: #ffcc00;
+        }
+        .actuator2-2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            background-color: #ffcc00;
+        }
+        .actuator2-3 {
+            width: 100px;
+            height: 100px;
+            top: 10px;
+            left: 10px;
+            background-color: orange;
+        }
+        .actuator3-1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            background-color: #ffcc00;
+        }
+        .actuator3-2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            background-color: green;
+        }
+        .actuator3-3 {
+            width: 100px;
+            height: 100px;
+            top: 10px;
+            left: 10px;
+            background-color: orange;
+        }
+        .log-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0s ease-in-out;
+        }
+        .log-button:hover {
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .info-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+        .info-button:hover {
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Hospital System</h1>
+    </header>
+    <div class="container"> 
+        <div class="subsystem_box">
+            <h2>Subsystem 1: Patient Monitoring System</h2>
+            <div class="Graph", id="chart1">
+                <canvas id="sensorChart1" width="50" height="24"></canvas>
+            </div>
+            <div class="actuator-title-container">
+                <span>alert_actuator</span>
+                <span>IV_flow_regulator_actuator</span>
+                <span>insulin_pump_actuator</span>
+            </div>
+            <div class="actuator-container">
+                <div class="actuator1-1">
+                    {% if result_true_1_list.0 == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/4325/4325930.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/4325/4325930.png" alt="act_img">
+                    {% endif %}
+                </div>
+                <div class="actuator1-2">
+                    {% if result_true_1_list.1 == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/1043/1043122.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/1043/1043122.png" alt="act_img">
+                    {% endif %}
+                </div>
+                <div class="actuator1-3">
+                    {% if result_true_1_list.2 == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/4337/4337828.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/4337/4337828.png" alt="act_img">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="actuator-title-container">
+                <span>ML Output: {{ result_true_1_list.0 }}</span>
+                <span>ML Output: {{ result_true_1_list.1 }}</span>
+                <span>ML Output: {{ result_true_1_list.2 }}</span>
+            </div>
+            <div class="log-button">
+                <a href="http://localhost:8000/log1/">LOG</a>
+            </div>
+        </div>
+        <div class="subsystem_box">
+            <h2>Subsystem 2: Visitor Health Check System</h2>
+            <div class="Graph", id="chart2">
+                <canvas id="sensorChart2"width="50" height="24"></canvas>
+            </div>
+            <div class="actuator-title-container">
+                <span>laser_pointer_actuator</span>
+                <span>door_lock_actuator</span>
+                <span>disinfectant_spray_actuator</span>
+            </div>
+            <div class="actuator-container">
+                <div class="actuator2-1">
+                    {% if result_true_2_list.0 == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/3154/3154286.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/3154/3154286.png" alt="act_img">
+                    {% endif %}
+                </div>
+                <div class="actuator2-2">
+                    {% if result_true_2_list.1  == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/3147/3147183.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/3147/3147183.png" alt="act_img">
+                    {% endif %}
+                </div>
+                <div class="actuator2-3">
+                    {% if result_true_2_list.2 == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/3088/3088135.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/3088/3088135.png" alt="act_img">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="actuator-title-container">
+                <span>ML Output: {{ result_true_2_list.0 }}</span>
+                <span>ML Output: {{ result_true_2_list.1 }}</span>
+                <span>ML Output: {{ result_true_2_list.2 }}</span>
+            </div>
+            <div class="log-button">
+                <a href="http://localhost:8000/log2/">LOG</a>
+            </div>
+
+        </div>
+        <div class="subsystem_box">
+            <h2>Subsystem 3: Surgery Room Conditioning System</h2>
+            <div class="Graph", id="chart3">
+                <canvas id="sensorChart3"width="50" height="24"></canvas>
+            </div>
+            <div class="actuator-title-container">
+                <span>electric_damper_actuator</span>
+                <span>HVAC_system_actuator</span>
+                <span>alarm_actuator</span>
+            </div>
+            <div class="actuator-container">
+                <div class="actuator3-1">
+                    {% if result_true_3_list.0 == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/12029/12029531.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/12029/12029531.png" alt="act_img">
+                    {% endif %}
+                </div>
+                <div class="actuator3-2">
+                    {% if result_true_3_list.1 == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/9047/9047815.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/9047/9047815.png" alt="act_img">
+                    {% endif %}
+                </div>
+                <div class="actuator3-3">
+                    {% if result_true_3_list.2 == 0.0 %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/1100/1100349.png" alt="act_img" style="filter: grayscale(100%);">
+                    {% else %}
+                        <img height="100px" width="100px" src="https://cdn-icons-png.flaticon.com/128/1100/1100349.png" alt="act_img">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="actuator-title-container">
+                <span>ML Output: {{ result_true_3_list.0 }}</span>
+                <span>ML Output: {{ result_true_3_list.1 }}</span>
+                <span>ML Output: {{ result_true_3_list.2 }}</span>
+            </div>
+            <div class="log-button">
+                <a href="http://localhost:8000/log3/">LOG</a>
+            </div>
+            </div></div>
+    </div>
+    <a href="http://localhost:8000/info/" class="info-button">INFO</a>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sample data (replace this with your actual data)
+            var sensorData = {{ last_100_sensor_data|safe }};
+        
+            // Function to create a chart for three sensors
+            function createChart(sensorNames, chartContainerId, chartId) {
+                var ctx = document.getElementById(chartId).getContext('2d');
+                var datasets = [];
+        
+                sensorNames.forEach(function (sensorName, index) {
+                    datasets.push({
+                        label: sensorName,
+                        data: sensorData[sensorName],
+                        borderColor: getLineColor(index),
+                        borderWidth: 2,
+                        fill: false
+                    });
+                });
+        
+                var data = {
+                    labels: Array.from({ length: sensorData[sensorNames[0]].length }, (_, i) => i + 1),
+                    datasets: datasets
+                };
+        
+                var options = {
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom'
+                        }
+                    }
+                };
+        
+                new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: options
+                });
+            }
+        
+            // Helper function to get line color based on index
+            function getLineColor(index) {
+                var colors = ['red', 'green', 'blue'];
+                return colors[index];
+            }
+        
+            // Create a chart for three sensors
+            createChart(['IV_level_sensor', 'heart_beat_sensor', 'flourescent_based_sensor'], 'chart1', 'sensorChart1');
+            createChart(['camera_sensor','Microbial_sensor','thermal_sensor'], 'chart2', 'sensorChart2');
+            createChart(['room_pressure_sensor','temperature_sensor','humidity_sensor'], 'chart3', 'sensorChart3');
+        });
+        </script>
+
+<script>
+    function autoRefresh() {
+        setTimeout(function () {
+            location.reload();
+        }, 1000);
+    }
+    autoRefresh();
+</script>
+
+    <div style="padding: 20px ;">
+        212100291 Moses Anthony Kwik
+        <br>
+        212100199 Martin Emmanuel Chang
+    </div>
+</body>
+</html>
